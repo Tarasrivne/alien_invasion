@@ -12,14 +12,13 @@ class AlienInvansion:
         pygame.init()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
 
-        self.screen = pygame.display.set_mode((1200,800))
+        
         pygame.display.set_caption("Alien Invansion")
-        self.ship = Ship(screen)
-        # background assignment
-        self.bg_color = (220, 230, 240)
-
+        self.ship = Ship(self)
+        
     def run_game(self):
         """Starting the basic game cycle"""
         while True:

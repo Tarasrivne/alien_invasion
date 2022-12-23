@@ -1,17 +1,28 @@
 import pygame
 
-class Ship():
-        """Клас для керування кораблем"""
+class Ship:
+    """Клас для керування кораблем"""
+
     def __init__(self, ai_game):
         """Ініціалізує корабель і задає його початкову позицію"""
-        self.screen = ai_game.scren
-        self.screen_rect = ai_game.scren.get_rect()
+        self.screen = ai_game.screen
+        self.screen_rect = ai_game.screen.get_rect()
 
         #Завантажує зображення корабля та отримує прямокутник
-        self.imege = pygame.image.load()
-        self.rect = self.imege.get_rect()
-        #Кожен нижній корабель зявляється у нижньому краї екрану
+        self.image = pygame.image.load('Star_ship2.bmp')
+        self.rect = self.image.get_rect()
+        '''Start each new ship at the bottom-center of the screen'''
         self.rect.midbottom = self.screen_rect.midbottom
+        # Флаг переміщення
+        self.moving_right = False
+        self.moving_left = False
+
+    def update(self):
+        """обновляє позицію корабля з урахуванням флага"""
+        if self.moving_right:
+            self.rect.x += 1
+        if self.moving_left:
+            self.rect.x -= 1
 
     def blitme(self):
         """малює корабель в актуальній позиції"""

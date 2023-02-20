@@ -1,19 +1,20 @@
- import sys
-
+import sys
 import pygame
 
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
 
+
 class AlienInvansion:
+
     """class for managing resources and game behavior"""
     def __init__(self):
         """initializes the game and creates game resources"""
         pygame.init()
         self.settings = Settings()
 
-        self.screen = pygame.display.set_mode((0,0), pygame.FULLSCREEN)
+        self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         self.settings.screen_width = self.screen.get_rect().width
         self.settings.screen_height = self.screen.get_rect().height
 
@@ -77,6 +78,7 @@ class AlienInvansion:
         pygame.display.flip()
 
 if __name__ == '__main__':
+
     # Creating an exemplar and running the game
     ai = AlienInvansion()
     ai.run_game()
